@@ -9,6 +9,7 @@ function getRandomNumber(min, max) {
 }
 
 
+
 document.getElementById("easy").addEventListener('click', function () {
     contEl.classList.add("easy_cont")
     document.querySelector('.buttons').style.display = 'none';
@@ -19,6 +20,7 @@ document.getElementById("easy").addEventListener('click', function () {
     console.log(bombs);
 
     function generateBombs(dimensione) {
+
         // creare un array vuota
         const bombs = []
         // ciclare finche la lunghezza dell'array bombs non é 16
@@ -34,6 +36,16 @@ document.getElementById("easy").addEventListener('click', function () {
         }
         return bombs;
     }
+    for (let index = 1; index < easy; index++) {
+
+
+
+        if (ifBomb(index, bombs)) {
+
+        }
+    }
+
+
 })
 
 
@@ -46,6 +58,8 @@ document.getElementById("medium").addEventListener('click', function () {
     const bombs = generateBombs(medium)
     console.log(bombs);
 
+    ifBomb(medium, bombs)
+
     function generateBombs(dimensione) {
         // creare un array vuota
         const bombs = []
@@ -64,6 +78,7 @@ document.getElementById("medium").addEventListener('click', function () {
     }
 })
 
+
 document.getElementById("hard").addEventListener('click', function () {
     contEl.classList.add("hard_cont")
     document.querySelector('.buttons').style.display = 'none';
@@ -72,6 +87,8 @@ document.getElementById("hard").addEventListener('click', function () {
 
     const bombs = generateBombs(hard)
     console.log(bombs);
+
+    ifBomb(hard, bombs)
 
     function generateBombs(dimensione) {
         // creare un array vuota
@@ -113,25 +130,13 @@ function generaGriglia(dimensione) {
     }
 }
 
-
-// Select all cells
-
-const cellElements = document.getElementsByClassName('cella');
-console.log(cellElements);
-
-// ciclare tra le celle
-for (let index = 0; index < cellElements.length; index++) {
-    const element = cellElements[index];
-
-    divElement.addEventListener('click', function () {
-        // prendere il contenuto della cell
-        const nCell = parseInt(this.innerText)
-        console.log(nCell);
-        // verifica se la cella é una bomba
-        is_a_bomb(nCell, bombs)
-    })
+function ifBomb(cellNum, bombs) {
+    if (bombs.includes(cellNum)) {
+        console.log('è una bomba');
+    } else {
+        console.log('keep going');
+    }
 }
-
 
 
 

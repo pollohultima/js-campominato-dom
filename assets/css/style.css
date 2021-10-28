@@ -17,7 +17,6 @@
       margin: 3rem auto;
       display: flex;
       flex-wrap: wrap;
-      visibility: hidden;
   }
 
   button {
@@ -49,7 +48,11 @@
       min-width: 700px;
   }
 
-  .buttons {
+  .difficulty {
       margin: 3rem auto;
       text-align: center;
+  }
+
+  #red {
+      background-color: red;
   }
